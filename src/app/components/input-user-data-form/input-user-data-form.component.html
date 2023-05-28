@@ -1,0 +1,265 @@
+<div style="text-align: center;">
+
+    <form [formGroup]="form" novalidate (ngSubmit)="submitForm()">
+        <div>
+            <label for="firstname">First Name: </label>
+
+            <!-- <input [ngClass]="form.get('firstname').valid?'is_valid':'is_invalid'" type="text" id="firstname" name="firstname" formControlName="firstname"/> -->
+            <input type="text" id="firstname" name="firstname" formControlName="firstname" [ngClass]="{
+            'is-invalid': form.get('firstname').invalid && form.get('firstname').dirty,
+            'is-valid': form.get('firstname').valid && form.get('firstname').dirty
+            }" />
+
+            <br>
+
+
+            <div *ngIf="!form.get('firstname').valid && (form.get('firstname').dirty || form.get('firstname').touched)"
+                [ngClass]="'error'">
+
+                <div *ngIf="form.get('firstname').errors['required'] && form.get('firstname').touched">
+
+                    <p>
+                        Firstname is required!
+                    </p>
+
+                </div>
+
+                <!-- <div *ngIf="form.get('firstname').errors['minlength'] && form.get('firstname').touched">
+                    <p>
+                        Firstname minimum lenghth is {{form.get('firstname').errors['minlength'].requiredLength}}
+                    </p>
+                </div> -->
+
+                <div *ngIf="form.get('firstname').errors['pattern'] && form.get('firstname').touched">
+
+                    <p>
+                        Firstname pattern is {{form.get('firstname').errors['pattern'].requiredPattern}}
+                    </p>
+
+                    <p>
+                        Enter only characters from
+                        <span style="color: chartreuse;">a</span> to <span
+                            style="color: chartreuse;">z</span>
+                        or <span style="color: chartreuse;">A</span> to <span
+                            style="color: chartreuse;">Z</span>
+                        without any empty spaces, any numbers and any special characters!
+                        <br>
+                        The first name must contain 
+                        <span style="color: chartreuse;">2</span> to 
+                        <span style="color: chartreuse;">25</span> characters!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br>
+
+
+
+        <div>
+            <label for="lastname">Last Name: </label>
+
+            <input type="text" id="lastname" name="lastname" formControlName="lastname" [ngClass]="{
+            'is-invalid': form.get('lastname').invalid && form.get('lastname').dirty,
+            'is-valid': form.get('lastname').valid && form.get('lastname').dirty
+            }" />
+
+            <br>
+
+
+            <div *ngIf="!form.get('lastname').valid && (form.get('lastname').dirty || form.get('lastname').touched)"
+                [ngClass]="'error'">
+
+                <div *ngIf="form.get('lastname').errors['required'] && form.get('lastname').touched">
+
+                    <p>
+                        Lastname is required!
+                    </p>
+
+                </div>
+
+                <!-- <div *ngIf="form.get('lastname').errors['minlength'] && form.get('lastname').touched">
+                    <p>
+                        Firstname minimum lenghth is {{form.get('lastname').errors['minlength'].requiredLength}}
+                    </p>
+                </div> -->
+
+                <div *ngIf="form.get('lastname').errors['pattern'] && form.get('lastname').touched">
+
+                    <p>
+                        Lastname pattern is {{form.get('lastname').errors['pattern'].requiredPattern}}
+                    </p>
+
+                    <p>
+                        Enter only characters from
+                        <span style="color: chartreuse;">a</span> to <span
+                            style="color: chartreuse;">z</span>
+                        or <span style="color: chartreuse;">A</span> to <span
+                            style="color: chartreuse;">Z</span>
+                        without any empty spaces, any numbers and any special characters!
+                        <br>
+                        The last name must contain 
+                        <span style="color: chartreuse;">2</span> to 
+                        <span style="color: chartreuse;">25</span> characters!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br>
+
+
+
+
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" formControlName="email" id="email" name="email" [ngClass]="{
+          'is-invalid': form.get('email').invalid && form.get('email').dirty,
+          'is-valid': form.get('email').valid && form.get('email').dirty
+          }">
+        </div>
+
+        <br>
+
+        <div *ngIf="!form.get('email').valid && (form.get('email').dirty || form.get('email').touched)"
+            [ngClass]="'error'">
+
+            <div *ngIf="form.get('email').errors['required'] && form.get('email').touched">
+                Email is required!
+            </div>
+
+            <div *ngIf="form.get('email').errors['pattern'] && form.get('email').touched">
+                Email pattern is {{form.get('email').errors['pattern'].requiredPattern}}
+
+                <p>
+                    Enter characters from
+                    <span style="color: chartreuse;">a-A</span> to <span
+                        style="color: chartreuse;">z-Z</span>
+                    ,special characters <span style="color: chartreuse;">._%+-</span>
+                    and number <span style="color: chartreuse;">0-9</span>
+                    <br>
+                    Email must contain 
+                    <span style="color: chartreuse;">2</span> to 
+                    <span style="color: chartreuse;">12</span> characters, special characters and number!
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <br>
+
+
+
+        <div>
+
+            <label for="zipCode">Zip Code: </label>
+            <input type="text" [ngClass]="{
+          'is-invalid': form.get('zipCode').invalid && form.get('zipCode').dirty,
+          'is-valid': form.get('zipCode').valid && form.get('zipCode').dirty
+          }" id="zipCode" formControlName="zipCode">
+
+            <br>
+
+            <div *ngIf="!form.get('zipCode').valid && (form.get('zipCode').dirty || form.get('zipCode').touched)"
+                [ngClass]=" 'error' ">
+
+                <div *ngIf="form.get('zipCode').errors['required'] && form.get('zipCode').touched">
+                    Street is required!
+                </div>
+
+                <!-- <div
+            *ngIf="form.get('zipCode').errors['minlength'] && form.get('zipCode').touched">
+            Zip code minimum lenghth is {{form.get('zipCode').errors['minlength'].requiredLength}}
+          </div>-->
+
+                <div *ngIf="form.get('zipCode').errors['pattern'] && form.get('zipCode').touched">
+                    Zip code pattern is {{form.get('zipCode').errors['pattern'].requiredPattern}}
+                    <p>Accept only<span style="color: chartreuse;"> numbers</span>!</p>
+                    
+                    ZipCode must contain 
+                    <span style="color: chartreuse;">4</span> to 
+                    <span style="color: chartreuse;">6</span> numbers!
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <br>
+
+
+
+
+
+
+
+
+
+
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" formControlName="password" id="password" name="password" [ngClass]="{
+      'is-invalid': form.get('password').invalid && form.get('password').dirty,
+      'is-valid': form.get('password').valid && form.get('password').dirty
+      }">
+        </div>
+
+        <br>
+
+        <div *ngIf="!form.get('password').valid && (form.get('password').dirty || form.get('password').touched)"
+            [ngClass]="'error'">
+
+            <div *ngIf="form.get('password').errors['required'] && form.get('password').touched">
+                Password is required!
+            </div>
+
+            <div *ngIf="form.get('password').errors['pattern'] && form.get('password').touched">
+                Password pattern is {{form.get('password').errors['pattern'].requiredPattern}}
+
+                <p>
+                    The password requires at least 
+                    <span style="color: chartreuse;">1 lowercase letter</span>
+                    ,
+                    <span style="color: chartreuse;">1 number</span>
+                    ,
+
+                    <span style="color: chartreuse;">at least 1 uppercase letter</span>
+                    and
+                    <span style="color: chartreuse;">at least 1 special character among @, $, !, %, *, ?, &</span>
+
+                    <br>
+                    Password must contain 
+                    <span style="color: chartreuse;">8</span> to 
+                    <span style="color: chartreuse;">12</span> characters uppercase and lowercase, special characters and number!
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+
+        <br>
+
+        <div>
+
+            <button class="btn-51" [hidden]="form.invalid" type="submit">Send</button>
+
+        </div>
+
+    </form>
+
+</div>
