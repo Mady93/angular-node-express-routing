@@ -263,22 +263,8 @@
     <br>
     <br>
 
-    <p style="font-size: 30px; color:red">Form is inavlid?
-        <span style="color: white;"> : </span>
-        <span style="color: chartreuse;">{{ form.invalid }}</span>
-    </p>
+    <p style="font-size: 30px;">Form is inavlid? : {{ form.invalid }}</p>
 
-    <br>
-
-    <div class="divElement">
-
-        <div class="element">
-
-            <pre style="margin-top: 30%;"><code style="color: chartreuse;">{{ form.value | json }}</code></pre>
-
-        </div>
-
-    </div>
-
+    <pre><code>{{ form.value | json }}</code></pre>
 
 </div>
