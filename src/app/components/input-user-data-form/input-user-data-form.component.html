@@ -38,14 +38,12 @@
 
                     <p>
                         Enter only characters from
-                        <span style="color: chartreuse;">a</span> to <span
-                            style="color: chartreuse;">z</span>
-                        or <span style="color: chartreuse;">A</span> to <span
-                            style="color: chartreuse;">Z</span>
+                        <span style="color: chartreuse;">a</span> to <span style="color: chartreuse;">z</span>
+                        or <span style="color: chartreuse;">A</span> to <span style="color: chartreuse;">Z</span>
                         without any empty spaces, any numbers and any special characters!
                         <br>
-                        The first name must contain 
-                        <span style="color: chartreuse;">2</span> to 
+                        The first name must contain
+                        <span style="color: chartreuse;">2</span> to
                         <span style="color: chartreuse;">25</span> characters!
                     </p>
                 </div>
@@ -94,14 +92,12 @@
 
                     <p>
                         Enter only characters from
-                        <span style="color: chartreuse;">a</span> to <span
-                            style="color: chartreuse;">z</span>
-                        or <span style="color: chartreuse;">A</span> to <span
-                            style="color: chartreuse;">Z</span>
+                        <span style="color: chartreuse;">a</span> to <span style="color: chartreuse;">z</span>
+                        or <span style="color: chartreuse;">A</span> to <span style="color: chartreuse;">Z</span>
                         without any empty spaces, any numbers and any special characters!
                         <br>
-                        The last name must contain 
-                        <span style="color: chartreuse;">2</span> to 
+                        The last name must contain
+                        <span style="color: chartreuse;">2</span> to
                         <span style="color: chartreuse;">25</span> characters!
                     </p>
                 </div>
@@ -137,13 +133,12 @@
 
                 <p>
                     Enter characters from
-                    <span style="color: chartreuse;">a-A</span> to <span
-                        style="color: chartreuse;">z-Z</span>
+                    <span style="color: chartreuse;">a-A</span> to <span style="color: chartreuse;">z-Z</span>
                     ,special characters <span style="color: chartreuse;">._%+-</span>
                     and number <span style="color: chartreuse;">0-9</span>
                     <br>
-                    Email must contain 
-                    <span style="color: chartreuse;">2</span> to 
+                    Email must contain
+                    <span style="color: chartreuse;">2</span> to
                     <span style="color: chartreuse;">12</span> characters, special characters and number!
                 </p>
 
@@ -182,9 +177,9 @@
                 <div *ngIf="form.get('zipCode').errors['pattern'] && form.get('zipCode').touched">
                     Zip code pattern is {{form.get('zipCode').errors['pattern'].requiredPattern}}
                     <p>Accept only<span style="color: chartreuse;"> numbers</span>!</p>
-                    
-                    ZipCode must contain 
-                    <span style="color: chartreuse;">4</span> to 
+
+                    ZipCode must contain
+                    <span style="color: chartreuse;">4</span> to
                     <span style="color: chartreuse;">6</span> numbers!
                 </div>
 
@@ -229,7 +224,7 @@
                 Password pattern is {{form.get('password').errors['pattern'].requiredPattern}}
 
                 <p>
-                    The password requires at least 
+                    The password requires at least
                     <span style="color: chartreuse;">1 lowercase letter</span>
                     ,
                     <span style="color: chartreuse;">1 number</span>
@@ -240,9 +235,10 @@
                     <span style="color: chartreuse;">at least 1 special character among @, $, !, %, *, ?, &</span>
 
                     <br>
-                    Password must contain 
-                    <span style="color: chartreuse;">8</span> to 
-                    <span style="color: chartreuse;">12</span> characters uppercase and lowercase, special characters and number!
+                    Password must contain
+                    <span style="color: chartreuse;">8</span> to
+                    <span style="color: chartreuse;">12</span> characters uppercase and lowercase, special characters
+                    and number!
                 </p>
 
             </div>
@@ -260,6 +256,29 @@
 
         </div>
 
+        <br>
     </form>
+
+    <br>
+    <br>
+    <br>
+
+    <p style="font-size: 30px; color:red">Form is inavlid?
+        <span style="color: white;"> : </span>
+        <span style="color: chartreuse;">{{ form.invalid }}</span>
+    </p>
+
+    <br>
+
+    <div class="divElement">
+
+        <div class="element">
+
+            <pre style="margin-top: 30%;"><code style="color: chartreuse;">{{ form.value | json }}</code></pre>
+
+        </div>
+
+    </div>
+
 
 </div>
